@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Text;
@@ -15,7 +16,7 @@ namespace modul6_103022300119
 
         public SayaTubeUser(string nama)
         {
-            this.Username = nama;
+           this.Username = nama;
             uploadedVideos = new List<SayaTubeVideo>();
             Random rand = new Random();
             this.id = rand.Next(10000, 99999);

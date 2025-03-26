@@ -26,7 +26,23 @@ namespace modul6_103022300119
 
         public void IncreasePlayCount(int count)
         {
-            this.playCount += count;
+            try
+            {
+                if (count > 25000000)
+                    throw new ArgumentOutOfRangeException("ccount", "Penambahan play count maksimal 25.000.000");
+                checked
+                {
+                    this.playCount += count;
+                }
+            }
+            catch (OverflowException)
+            {
+                Console.WriteLine("Errpr: play count terlalu besar.");
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
         }
 
         public void PrintVideoDetails()
